@@ -13,48 +13,6 @@ const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
 const REFRESH_TOKEN = process.env.GOOGLE_REFRESH_TOKEN;
 const ACCESS_TOKEN = process.env.GOOGLE_ACCESS_TOKEN
 
-
-// const transport = async () => {
-//   const oAuth2Client = new google.auth.OAuth2(
-//     CLIENT_ID, 
-//     CLIENT_SECRET, 
-//     REDIRECT_URI
-//     );
-    
-//   oAuth2Client.setCredentials({refresh_token: REFRESH_TOKEN});
-
-//   const accessToken = await new Promise((resolve, reject) => {
-//     oauth2Client.getAccessToken((err, token) => {
-//       if (err) {
-//         reject("Failed to create access token :(");
-//       }
-//       resolve(token);
-//     });
-//   });
-  
-//   const contactEmail = nodemailer.createTransport({
-//     service: 'gmail',
-//     host: 'smtp.gmail.com',
-//     port: 465,
-//     secure: true,
-//     auth: {
-//       type: 'OAuth2',
-//       clientId: CLIENT_ID,
-//       clientSecret: CLIENT_SECRET,
-//       refreshToken: REFRESH_TOKEN,
-//       accessToken: accessToken,
-//     },
-//   });
-  
-//   contactEmail.verify((error) => {
-//     if (error) {
-//       console.log(error);
-//     } else {
-//       console.log("Ready to Send");
-//     }
-//   });
-// };
-
 let transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 465,
@@ -76,8 +34,6 @@ let transporter = nodemailer.createTransport({
       console.log("Ready to Send");
     }
   });
-
-
 
 /* Send mail */
 
