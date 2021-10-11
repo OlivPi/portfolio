@@ -1,3 +1,4 @@
+var dotenv = require("dotenv").config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -11,6 +12,13 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+
+  next();
+});
+
 app.use(cors());
 
 // view engine setup
@@ -32,8 +40,6 @@ app.use(express.static(path.join(__dirname, 'front/build')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.listen(5000, () => console.log("Server Running"));
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -50,6 +56,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
+app.listen(5000, () => console.log("Server Running"));
 
 module.exports = app;
