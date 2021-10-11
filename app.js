@@ -31,6 +31,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'front/build')));
+// Handle GET requests to /api route
+app.get("/api", (req, res) => {
+  res.json({ message: "Hello from server!" });
+});
+
+// All other GET requests not handled before will return our React app
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'front/build', 'index.html'));
+});
 
 // app.get('*', function (req, res) {
 //   const index = path.join(__dirname, 'build', 'index.html');
