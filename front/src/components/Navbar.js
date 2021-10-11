@@ -1,7 +1,8 @@
 import '../App';
 import React from 'react';
-import {NavLink, Link} from 'react-router-dom';
-import {ReactComponent as OpLogo} from '../logo.svg';
+import {NavLink} from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
+import {ReactComponent as OpLogo} from '../logo-w.svg';
 import { Disclosure } from '@headlessui/react';
 import { MailIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 
@@ -67,12 +68,14 @@ export default function Navbar() {
             </div>
               
               <div className="flex items-center">
+                <Link to="/#Contactform">
                 <button
                         type="button"
                         className="bg-white hover:bg-gray-100 text-gray-800 text-grey-darkest font-bold py-2 px-4 rounded inline-flex items-center shadow">
                         <MailIcon className="h-6 w-6 mr-2" aria-hidden="true" />
                         Contact
                 </button>
+                </Link>
               </div>
 
             </div>

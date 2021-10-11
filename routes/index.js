@@ -13,6 +13,11 @@ const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
 const REFRESH_TOKEN = process.env.GOOGLE_REFRESH_TOKEN;
 const ACCESS_TOKEN = process.env.GOOGLE_ACCESS_TOKEN
 
+/* GET home page. */
+router.get("/", function (req, res, next) {
+  res.send("Super front");
+});
+
 let transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 465,

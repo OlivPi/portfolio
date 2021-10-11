@@ -22,14 +22,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
-app.use('/static', express.static(path.join(__dirname, 'front/public')));
+app.use(express.static(path.join(__dirname, 'front/public')));
 
 // app.get('*', function (req, res) {
 //   const index = path.join(__dirname, 'build', 'index.html');
 //   res.sendFile(index);
 // });
-
-app.listen(9000);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
