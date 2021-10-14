@@ -56,6 +56,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(5000, () => console.log("Server Running"));
+// app.listen(5000, () => console.log("Server Running"));
 
 module.exports = app;
