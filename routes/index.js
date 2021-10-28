@@ -1,10 +1,14 @@
+require('dotenv').config();
+
 const express = require('express');
 const router = express.Router();
+var request = require('sync-request');
+
 const nodemailer = require("nodemailer");
 const {google} = require('googleapis');
 var xoauth2 = require('xoauth2');
 
-require('dotenv').config();
+
 
 
 const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
