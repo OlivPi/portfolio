@@ -6,11 +6,7 @@ import '../App.css';
 const listXp = [
   { id:'1', date: '2016-2019', post: 'Management et communication', societe:'Groupe de musique Kunta (Ethio, Hip-hop, pop)' },
   { id:'2', date: 'Depuis 2009', post: 'Dj', societe:'Sous les noms STONN et Jean Digue' },
-  { id:'3', post: 'Animateur Bafa', societe:'Section adolescent' },
-  { id:'4', date: 'Depuis 2009', post: 'Dj', societe:'Sous les noms STONN et Jean Digue' },
-
-
-
+  { id:'3', date: 'Depuis 2005', post: 'Animateur Bafa', societe:'Section adolescent' },
 ]
 
 export default function HobElement() {
@@ -24,7 +20,7 @@ export default function HobElement() {
           <ul className="flex-col grid gap-y-4 text-lg xs:text-base">
               {listXp.map((item) => (
               <li key={item.id}>
-              <span className='italic'>{item.date} : </span><span className='font-bold'>{item.post}</span>, <span className='font-light'>{item.societe}</span> - {item.skills}
+              <span className='italic'>{item.date} : </span><span className='font-bold'>{item.post}</span>, <span className='font-light'>{item.societe}</span>
               </li>
               ))}
           </ul>
