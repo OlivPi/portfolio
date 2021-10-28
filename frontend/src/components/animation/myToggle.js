@@ -9,14 +9,11 @@ export default function MyToggle() {
   const {theme, setTheme} = useContext(ThemeContext);
 
 
-  console.log(theme);
-
-
-
       return (
         <Switch
           checked={enabled}
-          onChange={() => setEnabled(setTheme)}
+          onChange={setEnabled}
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           className={`${
             enabled ? 'bg-white' : 'bg-gray-200'
           } relative inline-flex items-center h-6 rounded-full w-11 my-3`}

@@ -11,11 +11,14 @@ import Hobbies from "./pages/Hobbies";
 import NotFound from "./pages/404";
 import MouseMoove from "./components/animation/mouseMoove";
 
+import { ThemeProvider } from "./components/ThemeContext";
+
 export default function App() {
 
 
   return (
     <Router>
+     <ThemeProvider>
       <MouseMoove/>
       <Switch>
         <Route exact path="/" component={Home}>
@@ -35,6 +38,7 @@ export default function App() {
         </Route>
         <Route component={NotFound}></Route>
       </Switch>
+      </ThemeProvider>
     </Router>
 
   );

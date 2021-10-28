@@ -10,41 +10,35 @@ const getInitialTheme = () => {
 
   const userMedia = window.matchMedia(('(prefers-color-scheme: dark)').matches);
   if (userMedia){
-    return 'dark';  
+    return 'light';  
   }
 
-  return 'light'
+  return 'dark'
 
 }
 
 
 export const ThemeContext = createContext();
 
+console.log(ThemeContext);
+
 export const ThemeProvider = ({ initialTheme, children }) => {
 
   const [theme, setTheme] = useState(getInitialTheme)
 
-  console.log(initialTheme);
+  const rawSetTheme = () => {
 
-  const rawSetTheme = (rawTheme) => {
-
-
-    const root = document.documentElement;
-    const isLight = rawTheme === 'light';
-
-
-    console.log(root);
-    console.log(isLight);
-    console.log(rawTheme);
-
-    root.classList.remove(isLight ? 'dark' : 'light');
-    root.classList.add(rawTheme);
-
-
-    localStorage.setItem('color-theme', rawTheme);
-
-    console.log(localStorage);
-
+    const root = window.document.documentElement;
+    const lightTheme = "light"
+    const darkTheme = "dark"
+    if (localStorage) {
+    localStorage.getItem("theme")
+    }
+    if (theme === lightTheme || theme === darkTheme) {
+    root.classList.add(theme);
+    } else {
+    root.classList.add(lightTheme)
+    }
     
   }
 
@@ -56,7 +50,6 @@ export const ThemeProvider = ({ initialTheme, children }) => {
 
   useEffect(()=>{
     rawSetTheme(theme)
-    console.log(theme);
   },[theme])
 
 

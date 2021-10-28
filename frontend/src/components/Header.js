@@ -4,6 +4,9 @@ import MyToggle from './animation/myToggle';
 
 import Navbar from './Navbar';
 
+import { ThemeContext } from '../components/ThemeContext'
+
+
 
 export default function Header() {
 
@@ -16,7 +19,7 @@ export default function Header() {
                 <img className="float-right" src="../images/1516818215398.jpeg" alt='Olivier PIERRE'/>
             </div>
             <div >
-                <MyToggle/>
+                {/* <MyToggle ThemeContext={ThemeContext}/> */}
                 <ul className="list-none lg:text-2xl sm:text-xl text-gray-100">
                     <li>Développeur Front-End</li>
                     <li>Spécialiste WordPress</li>
